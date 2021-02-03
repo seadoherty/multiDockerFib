@@ -10,12 +10,12 @@ script:
   - docker run -e CI=true 539904/react-fib-test npm test -- --coverage
 
 after_sucess:
-  - docker build -t 539904/multiDockerFib-client ./client
-  - docker build -t 539904/multiDockerFib-nginx ./nginx
-  - docker build -t 539904/multiDockerFib-server ./server
-  - docker build -t 539904/multiDockerFib-worker ./worker
+  - docker build -t 539904/multi-docker-fib-client ./client
+  - docker build -t 539904/multi-docker-fib-nginx ./nginx
+  - docker build -t 539904/multi-docker-fib-server ./server
+  - docker build -t 539904/multi-docker-fib-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push 539904/multiDockerFib-client
-  - docker push 539904/multiDockerFib-nginx
-  - docker push 539904/multiDockerFib-server
-  - docker push 539904/multiDockerFib-worker
+  - docker push 539904/multi-docker-fib-client
+  - docker push 539904/multi-docker-fib-nginx
+  - docker push 539904/multi-docker-fib-server
+  - docker push 539904/multi-docker-fib-worker
